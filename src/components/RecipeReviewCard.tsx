@@ -42,7 +42,16 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
   ],
 }));
 
-export function RecipeReviewCard({ recipe }: Props) {
+interface RecipeReviewCardProps {
+  recipe: {
+    id: number;
+    name: string;
+    ingredients: string[];
+    description: string;
+  };
+}
+
+export function RecipeReviewCard({ recipe }: RecipeReviewCardProps) {
     
   const [expanded, setExpanded] = React.useState(false);
 

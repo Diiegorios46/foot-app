@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { BottomNavigation, BottomNavigationAction, colors, Paper } from '@mui/material';
+import { BottomNavigation, BottomNavigationAction, Paper } from '@mui/material';
 import HomeIcon from '@mui/icons-material/Home';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 
@@ -23,7 +23,7 @@ export function Menu(){
             <BottomNavigation
                 showLabels={false}
                 value={value}
-                onChange={(event, newValue) => setValue(newValue)}
+                onChange={(_, newValue) => setValue(newValue)}
                 sx={{ backgroundColor: '#ff892f' ,  color : 'white'}}
             >
                 <BottomNavigationAction icon={<HomeIcon />} 

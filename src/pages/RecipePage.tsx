@@ -14,6 +14,7 @@ export function RecipePage() {
 
   const handleSearch = (query: string) => {
     setSearchFoot(query);
+    console.log(searchFoot);
   };
 
   // const filteredRecipes = recipe.filter((recipe) =>{
