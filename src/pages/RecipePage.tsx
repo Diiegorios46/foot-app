@@ -9,10 +9,16 @@ import {RecipeReviewCard} from "../components/RecipeReviewCard";
 export function RecipePage() {
   const [recipe, setRecipe] = useState<Recipe[]>([]);
   const [cargando, setCargando] = useState(true);
+  const [searchFoot, setSearchFoot] = useState("");
+  // const [filteredRecipes, setFilteredRecipes] = useState<Recipe[]>([]);
 
   const handleSearch = (query: string) => {
-    console.log("Buscando:", query);
+    setSearchFoot(query);
   };
+
+  // const filteredRecipes = recipe.filter((recipe) =>{
+  //   setFilteredRecipes(recipe.ingredient.toLowerCase().includes(searchFoot.toLowerCase())); 
+  // })
 
   useEffect(() => {
     getRecipe()
