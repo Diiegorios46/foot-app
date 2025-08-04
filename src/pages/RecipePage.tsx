@@ -1,11 +1,9 @@
 import { useEffect, useState } from "react";
 import { getRecipe } from "../api/recipe";
 import type { Recipe } from "../types/Recipe";
-// import { RecipeItem } from "../components/RecipeItem";
 import {SearchBar} from "../components/SearchBar";
 import {Menu} from "../components/menu";
 import {RecipeReviewCard} from "../components/RecipeReviewCard";
-import { Description } from "@mui/icons-material";
 
 
 export function RecipePage() {
