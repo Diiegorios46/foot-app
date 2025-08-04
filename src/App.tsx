@@ -1,4 +1,4 @@
-import { RecipePage } from "./pages/recipePage";
+import { RecipePage } from "./pages/RecipePage";
 
 function App() {
   return <RecipePage />;
