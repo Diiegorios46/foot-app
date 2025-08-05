@@ -60,7 +60,7 @@ export function RecipeReviewCard({ recipe }: RecipeReviewCardProps) {
   };
 
   return (
-    <Card sx={{ maxWidth: 345, margin: 1}}>
+    <Card sx={{ maxWidth: 345, margin: 1 }}>
       <CardHeader
         action={
           <IconButton aria-label="settings">
@@ -78,10 +78,10 @@ export function RecipeReviewCard({ recipe }: RecipeReviewCardProps) {
       <CardContent>
         <Typography sx={{ marginBottom: 2 }}>Ingredientes:</Typography>
         <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+        </Typography>
           {recipe.ingredients.map((ingredient:string,index:number)=>(
             <div key={index}>{ingredient}</div>
           ))}
-        </Typography>
       </CardContent>
       <CardActions disableSpacing>
         <IconButton aria-label="add to favorites">
@@ -101,10 +101,10 @@ export function RecipeReviewCard({ recipe }: RecipeReviewCardProps) {
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
-          <Typography sx={{ marginBottom: 2 }}>Method:</Typography>
+          <Typography sx={{ marginBottom: 2 }}>Receta:</Typography>
           <Typography sx={{ marginBottom: 2 }}>
-            {recipe.description}
           </Typography>
+          {recipe.description}
         </CardContent>
       </Collapse>
     </Card>

@@ -10,9 +10,9 @@ export function Menu(){
         <Paper 
             sx={{ 
                 position: 'fixed', 
-                bottom: 40, 
-                left: 10, 
-                right: 10,
+                bottom: 0 , 
+                left: 0, 
+                right: 0,
                 borderRadius: '100px 100px 100px 100px',
                 margin: '0 auto',
                 maxWidth: 400,
