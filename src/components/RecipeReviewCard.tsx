@@ -48,6 +48,7 @@ interface RecipeReviewCardProps {
     name: string;
     ingredients: string[];
     description: string;
+    image: string;
   };
 }
 
@@ -72,7 +73,7 @@ export function RecipeReviewCard({ recipe }: RecipeReviewCardProps) {
       <CardMedia
         component="img"
         height="194"
-        image="https://th.bing.com/th/id/OSK.b71d9202c5cb7fb2c3c06665b9d188e7?w=220&h=161&rs=2&qlt=80&o=6&cdv=1&pid=16.1"
+        image={recipe.image}
         alt="Paella dish"
       />
       <CardContent>
