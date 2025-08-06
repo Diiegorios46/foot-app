@@ -46,17 +46,15 @@ export function RecipePage() {
   if(opcionSeleccionada === 1){
     return (
       <div className="bg-[#ff892f] h-auto min-h-[1100px] pb-15">
-        
+
         <Text content={"¿Que cocinamos hoy?"}></Text>
         <div className="p-2">
           <SearchBar onSearch={handleSearch}></SearchBar>
         </div>
 
-        <div className="grid justify-center">
-          {favoriteRecipes.map((recipe , index) => (
-            <RecipeReviewCard key={index} recipe={recipe} setFavoriteRecipes={setFavoriteRecipes} />
-          ))}
-        </div>
+        {favoriteRecipes.map((recipe , index) => (
+          <RecipeReviewCard key={index} recipe={recipe} setFavoriteRecipes={setFavoriteRecipes} />
+        ))}
 
         <Menu opcionSeleccionada={opcionSeleccionada} setOpcionSeleccionada={setOpcionSeleccionada}/>
 
