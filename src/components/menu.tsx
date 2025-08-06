@@ -1,10 +1,22 @@
-import * as React from 'react';
 import { BottomNavigation, BottomNavigationAction, Paper } from '@mui/material';
 import HomeIcon from '@mui/icons-material/Home';
+import { useState } from 'react';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 
-export function Menu(){
-    const [value, setValue] = React.useState(1);
+type funcionalidad = {
+    setOpcionSeleccionada : React.Dispatch<React.SetStateAction<number>>;
+    opcionSeleccionada : number ;
+}
+
+export function Menu({setOpcionSeleccionada , opcionSeleccionada} : funcionalidad){
+    
+    const [value, setValue] = useState<number>(opcionSeleccionada);
+
+    const changeOption = (value : number) => {
+        setValue(value);
+        setOpcionSeleccionada(value);
+        console.log("este es el valor" + value);
+    }
 
     return (
         <Paper 
@@ -24,15 +36,19 @@ export function Menu(){
             <BottomNavigation
                 showLabels={false}
                 value={value}
-                onChange={(_, newValue) => setValue(newValue)}
+                onChange={(_,value) => changeOption(value)}
                 sx={{ backgroundColor: '#ff892f' ,  color : 'white'}}
             >
 
                 <BottomNavigationAction icon={<HomeIcon />} 
-                sx={{ color : 'white'}}
+                sx={{ color : 'white' , '&.Mui-selected': {
+                      color: '#ffd580', // naranja clarito
+                    },}}
                 />
                 <BottomNavigationAction icon={<FavoriteIcon />} 
-                sx={{ color : 'white'}}
+                sx={{ color : 'white' , '&.Mui-selected': {
+                      color: '#ffd580', // naranja clarito
+                    },}}
                 />
 
             </BottomNavigation>

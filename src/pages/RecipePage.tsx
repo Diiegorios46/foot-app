@@ -14,11 +14,10 @@ export function RecipePage() {
   const [cargando, setCargando] = useState(true);
   const [searchFoot, setSearchFoot] = useState("");
   const [filteredRecipes, setFilteredRecipes] = useState<Recipe[]>([]);
-  const [value, setValue] = useState(1);
-  
   const filtered = recipes.filter(u => u.name.toLowerCase().includes(searchFoot.toLowerCase()) ||
-  u.ingredients.some(ingredient => ingredient.toLowerCase().includes(searchFoot.toLowerCase())));
+                                  u.ingredients.some(ingredient => ingredient.toLowerCase().includes(searchFoot.toLowerCase())));
 
+  const [opcionSeleccionada, setOpcionSeleccionada] = useState<number>(0); // 0: home, 1: me gusta
 
   useEffect(() => {
     getRecipe()
@@ -35,7 +34,6 @@ export function RecipePage() {
   };
 
   const showHTMLRecipe = searchFoot ?  filteredRecipes :  recipes;
-
 
   if (cargando) return (
     <div className="bg-[#ff892f] min-h-[1000px] flex justify-center items-center">
@@ -69,7 +67,7 @@ export function RecipePage() {
 
       ))}
       
-      <Menu/>
+      <Menu opcionSeleccionada={opcionSeleccionada} setOpcionSeleccionada={setOpcionSeleccionada}/>
 
     </div>
   );
