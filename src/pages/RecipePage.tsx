@@ -2,13 +2,13 @@ import { useEffect, useState } from "react";
 import { getRecipe } from "../api/recipe";
 import type { Recipe } from "../types/Recipe";
 import {SearchBar} from "../components/SearchBar";
-import {Menu} from "../components/Menu";
-import {Text} from "../components/Text";
+import {Menu} from "../components/menu";
+import {Text} from "../components/text";
 import {RecipeReviewCard} from "../components/RecipeReviewCard";
 import Reload from "../components/Reload";
 import { Alert } from "@mui/material";
 
-
+  
 export function RecipePage() {
   const [recipes, setRecipe] = useState<Recipe[]>([]);
   const [cargando, setCargando] = useState(true);
@@ -41,7 +41,7 @@ export function RecipePage() {
     </div>
   );
 
-
+  
 
   if(opcionSeleccionada === 1){
     return (
