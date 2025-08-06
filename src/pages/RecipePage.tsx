@@ -2,11 +2,12 @@ import { useEffect, useState } from "react";
 import { getRecipe } from "../api/recipe";
 import type { Recipe } from "../types/Recipe";
 import {SearchBar} from "../components/SearchBar";
-import {Menu} from "../components/menu";
-import {Text} from "../components/text";
 import {RecipeReviewCard} from "../components/RecipeReviewCard";
 import Reload from "../components/Reload";
 import { Alert } from "@mui/material";
+
+import {Menu} from "../components/MenuInteraction";
+import {Text} from "../components/texto";
 
   
 export function RecipePage() {
