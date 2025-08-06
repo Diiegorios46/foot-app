@@ -15,7 +15,6 @@ export function Menu({setOpcionSeleccionada , opcionSeleccionada} : funcionalida
     const changeOption = (value : number) => {
         setValue(value);
         setOpcionSeleccionada(value);
-        console.log("este es el valor" + value);
     }
 
     return (
@@ -41,13 +40,13 @@ export function Menu({setOpcionSeleccionada , opcionSeleccionada} : funcionalida
             >
 
                 <BottomNavigationAction icon={<HomeIcon />} 
-                sx={{ color : 'white' , '&.Mui-selected': {
-                      color: '#ffd580', // naranja clarito
+                sx={{ color : '#ffd580' , '&.Mui-selected': {
+                      color: 'white', // naranja clarito
                     },}}
                 />
                 <BottomNavigationAction icon={<FavoriteIcon />} 
-                sx={{ color : 'white' , '&.Mui-selected': {
-                      color: '#ffd580', // naranja clarito
+                sx={{ color : '#ffd580' , '&.Mui-selected': {
+                      color: 'white', // naranja clarito
                     },}}
                 />
 

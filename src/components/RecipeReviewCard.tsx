@@ -42,17 +42,21 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
   ],
 }));
 
-interface RecipeReviewCardProps {
-  recipe: {
+type recipe = {
     id: number;
     name: string;
     ingredients: string[];
     description: string;
     image: string;
-  };
+    cooking_time: string;
+}  
+
+type RecipeReviewCardProps =  {
+  recipe : recipe;
+  setFavoriteRecipes : React.Dispatch<React.SetStateAction<recipe[]>>;
 }
 
-export function RecipeReviewCard({ recipe }: RecipeReviewCardProps) {
+export function RecipeReviewCard({ recipe , setFavoriteRecipes }: RecipeReviewCardProps) {
     
   const [expanded, setExpanded] = React.useState(false);
 
@@ -87,7 +91,9 @@ export function RecipeReviewCard({ recipe }: RecipeReviewCardProps) {
       
       <CardActions disableSpacing>
         
-        <IconButton aria-label="add to favorites">
+        <IconButton aria-label="add to favorites"
+          onClick={() => setFavoriteRecipes((prev)=> [...prev, recipe])}
+        >
           <FavoriteIcon />
         </IconButton>
 

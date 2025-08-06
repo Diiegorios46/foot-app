@@ -16,8 +16,8 @@ export function RecipePage() {
   const [filteredRecipes, setFilteredRecipes] = useState<Recipe[]>([]);
   const filtered = recipes.filter(u => u.name.toLowerCase().includes(searchFoot.toLowerCase()) ||
                                   u.ingredients.some(ingredient => ingredient.toLowerCase().includes(searchFoot.toLowerCase())));
-
-  const [opcionSeleccionada, setOpcionSeleccionada] = useState<number>(0); // 0: home, 1: me gusta
+  const [favoriteRecipes, setFavoriteRecipes] = useState<Recipe[]>([]);
+  const [opcionSeleccionada, setOpcionSeleccionada] = useState<number>(0);
 
   useEffect(() => {
     getRecipe()
@@ -42,6 +42,28 @@ export function RecipePage() {
   );
 
 
+
+  if(opcionSeleccionada === 1){
+    return (
+      <div className="bg-[#ff892f] h-auto min-h-[1100px] pb-15">
+        
+        <Text content={"¿Que cocinamos hoy?"}></Text>
+        <div className="p-2">
+          <SearchBar onSearch={handleSearch}></SearchBar>
+        </div>
+
+        <div className="grid justify-center">
+          {favoriteRecipes.map((recipe , index) => (
+            <RecipeReviewCard key={index} recipe={recipe} setFavoriteRecipes={setFavoriteRecipes} />
+          ))}
+        </div>
+
+        <Menu opcionSeleccionada={opcionSeleccionada} setOpcionSeleccionada={setOpcionSeleccionada}/>
+
+      </div>
+    )
+  }
+
   return (
     <div className="bg-[#ff892f] h-auto min-h-[1100px] pb-15">
     
@@ -61,7 +83,7 @@ export function RecipePage() {
 
         <div className="grid justify-center">
           {showHTMLRecipe.map((recipe , index) => (
-            <RecipeReviewCard key={index} recipe={recipe} />
+            <RecipeReviewCard key={index} recipe={recipe} setFavoriteRecipes={setFavoriteRecipes} />
           ))}
         </div>
 
