@@ -5,7 +5,7 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 
 export function Menu(){
     const [value, setValue] = React.useState(1);
-    
+
     return (
         <Paper 
             sx={{ 
@@ -20,19 +20,23 @@ export function Menu(){
             }} 
             elevation={3}
             >
+
             <BottomNavigation
                 showLabels={false}
                 value={value}
                 onChange={(_, newValue) => setValue(newValue)}
                 sx={{ backgroundColor: '#ff892f' ,  color : 'white'}}
             >
+
                 <BottomNavigationAction icon={<HomeIcon />} 
                 sx={{ color : 'white'}}
                 />
                 <BottomNavigationAction icon={<FavoriteIcon />} 
                 sx={{ color : 'white'}}
                 />
+
             </BottomNavigation>
+
         </Paper>
     )
 

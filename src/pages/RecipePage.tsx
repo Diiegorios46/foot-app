@@ -14,6 +14,7 @@ export function RecipePage() {
   const [cargando, setCargando] = useState(true);
   const [searchFoot, setSearchFoot] = useState("");
   const [filteredRecipes, setFilteredRecipes] = useState<Recipe[]>([]);
+  const [value, setValue] = useState(1);
   
   const filtered = recipes.filter(u => u.name.toLowerCase().includes(searchFoot.toLowerCase()) ||
   u.ingredients.some(ingredient => ingredient.toLowerCase().includes(searchFoot.toLowerCase())));
@@ -60,17 +61,14 @@ export function RecipePage() {
 
       ) : (
 
-          <div className="grid justify-center">
-            {showHTMLRecipe.map((recipe , index) => (
-              <RecipeReviewCard key={index} recipe={recipe} />
-            ))}
-          </div>
+        <div className="grid justify-center">
+          {showHTMLRecipe.map((recipe , index) => (
+            <RecipeReviewCard key={index} recipe={recipe} />
+          ))}
+        </div>
 
       ))}
-
-
-
-
+      
       <Menu/>
 
     </div>

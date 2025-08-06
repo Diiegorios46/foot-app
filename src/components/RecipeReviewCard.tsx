@@ -84,13 +84,17 @@ export function RecipeReviewCard({ recipe }: RecipeReviewCardProps) {
             <div key={index}>{ingredient}</div>
           ))}
       </CardContent>
+      
       <CardActions disableSpacing>
+        
         <IconButton aria-label="add to favorites">
           <FavoriteIcon />
         </IconButton>
+
         <IconButton aria-label="share">
           <ShareIcon />
         </IconButton>
+
         <ExpandMore
           expand={expanded}
           onClick={handleExpandClick}
@@ -99,7 +103,9 @@ export function RecipeReviewCard({ recipe }: RecipeReviewCardProps) {
         >
           <ExpandMoreIcon />
         </ExpandMore>
+
       </CardActions>
+
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
           <Typography sx={{ marginBottom: 2 }}>Receta:</Typography>
@@ -108,6 +114,7 @@ export function RecipeReviewCard({ recipe }: RecipeReviewCardProps) {
           {recipe.description}
         </CardContent>
       </Collapse>
+
     </Card>
   );
 }
