@@ -5,4 +5,5 @@ export interface Recipe {
     cooking_time : string ;
     image : string ;
     ingredients : string[] ;
+    like : boolean;
 };

@@ -5,7 +5,6 @@ import {SearchBar} from "../components/SearchBar";
 import {RecipeReviewCard} from "../components/RecipeReviewCard";
 import Reload from "../components/Reload";
 import { Alert } from "@mui/material";
-
 import {Menu} from "../components/MenuInteraction";
 import {Text} from "../components/texto";
 
@@ -37,14 +36,14 @@ export function RecipePage() {
   const showHTMLRecipe = searchFoot ?  filteredRecipes :  recipes;
 
   if (cargando) return (
-    <div className="bg-[#ff892f] min-h-[1000px] flex justify-center items-center">
+    <div className="min-h-[1000px] flex justify-center items-center">
       <Reload/>
     </div>
   );
 
   if(opcionSeleccionada === 1){
     return (
-      <div className="bg-[#ff892f] h-auto min-h-[1100px] pb-15">
+      <div className="h-auto min-h-[1100px] pb-15">
 
         <Text content={"¿Que cocinamos hoy?"}></Text>
         <div className="p-2">
@@ -62,10 +61,10 @@ export function RecipePage() {
   }
 
   return (
-    <div className="bg-[#ff892f] h-auto min-h-[1100px] pb-15">
+    <div className="h-auto min-h-[1100px] pb-15">
     
       <Text content={"¿Que cocinamos hoy?"}></Text>
-      <div className="p-2">
+      <div className="p-4">
         <SearchBar onSearch={handleSearch}></SearchBar>
       </div>
 
@@ -78,7 +77,7 @@ export function RecipePage() {
 
       ) : (
 
-        <div className="grid justify-center">
+        <div className="grid justify-center bg-[#f9fafb]">
           {showHTMLRecipe.map((recipe , index) => (
             <RecipeReviewCard key={index} recipe={recipe} setFavoriteRecipes={setFavoriteRecipes} favoriteRecipes={favoriteRecipes} />
           ))}

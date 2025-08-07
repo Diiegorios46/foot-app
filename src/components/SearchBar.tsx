@@ -9,11 +9,14 @@ export function SearchBar({ onSearch }: SearchBarProps) {
   return (
     <TextField
       sx={{
-        background : "white",
-        borderRadius : "10px"
+        background : "#f9fafb",
+        borderRadius: "100px", // Esto aplica al contenedor
+        "& .MuiOutlinedInput-root": {
+          borderRadius: "100px", // Esto aplica al input real
+        },
       }}
       variant="outlined"
-      placeholder="Buscar"
+      placeholder="Buscar recetas..."
       fullWidth
       onChange={(e) => onSearch(e.target.value)}
       InputProps={{

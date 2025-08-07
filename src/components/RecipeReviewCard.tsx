@@ -49,6 +49,7 @@ type recipe = {
     description: string;
     image: string;
     cooking_time: string;
+    like : boolean;
 }  
 
 type RecipeReviewCardProps =  {
@@ -68,7 +69,15 @@ export function RecipeReviewCard({ recipe , setFavoriteRecipes , favoriteRecipes
     if(!alreadyExist){ 
       console.log(favoriteRecipes)
       // si no existe, la agregamos a los favoritos
-      setFavoriteRecipes((prev) => [...prev , recipe]);
+      setFavoriteRecipes(prev => [
+        ...prev, 
+        { ...recipe, like: true }
+      ]);
+    }else{
+      // Si ya existe, la quitamos
+      setFavoriteRecipes(prev =>
+        prev.filter(fav => fav.name !== recipe.name)
+      );  
     }
   }
   
@@ -87,7 +96,11 @@ export function RecipeReviewCard({ recipe , setFavoriteRecipes , favoriteRecipes
             <MoreVertIcon />
           </IconButton>
         }
-        title= {recipe.name}
+        title= {
+          <Typography variant="h6" sx={{ fontWeight: 900 }}>
+            {recipe.name}
+          </Typography>
+        }
       />
       <CardMedia
         component="img"
@@ -108,6 +121,9 @@ export function RecipeReviewCard({ recipe , setFavoriteRecipes , favoriteRecipes
         
         <IconButton aria-label="add to favorites"
           onClick={() => includeRecipe()}
+          sx={{
+            color: recipe.like ? "red" : "grey"
+          }}
         >
           <FavoriteIcon />
         </IconButton>

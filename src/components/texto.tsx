@@ -5,8 +5,10 @@ type ContentProps = {
 
 export const Text = ({content} : ContentProps) => {
     return (
-        <div className="text-white text-2xl p-4 pt-10 font-bold text-center">
-            {content}
+        <div className="px-4 py-6">           
+            <h1 className="text-3xl font-bold text-gray-800 text-center">
+                {content}🍳
+            </h1>
         </div>
     )
 }
