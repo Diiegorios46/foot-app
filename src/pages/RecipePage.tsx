@@ -42,8 +42,6 @@ export function RecipePage() {
     </div>
   );
 
-  
-
   if(opcionSeleccionada === 1){
     return (
       <div className="bg-[#ff892f] h-auto min-h-[1100px] pb-15">
@@ -54,7 +52,7 @@ export function RecipePage() {
         </div>
 
         {favoriteRecipes.map((recipe , index) => (
-          <RecipeReviewCard key={index} recipe={recipe} setFavoriteRecipes={setFavoriteRecipes} />
+          <RecipeReviewCard key={index} recipe={recipe} setFavoriteRecipes={setFavoriteRecipes} favoriteRecipes={favoriteRecipes} />
         ))}
 
         <Menu opcionSeleccionada={opcionSeleccionada} setOpcionSeleccionada={setOpcionSeleccionada}/>
@@ -82,7 +80,7 @@ export function RecipePage() {
 
         <div className="grid justify-center">
           {showHTMLRecipe.map((recipe , index) => (
-            <RecipeReviewCard key={index} recipe={recipe} setFavoriteRecipes={setFavoriteRecipes} />
+            <RecipeReviewCard key={index} recipe={recipe} setFavoriteRecipes={setFavoriteRecipes} favoriteRecipes={favoriteRecipes} />
           ))}
         </div>
 

@@ -54,11 +54,26 @@ type recipe = {
 type RecipeReviewCardProps =  {
   recipe : recipe;
   setFavoriteRecipes : React.Dispatch<React.SetStateAction<recipe[]>>;
+  favoriteRecipes : recipe[];
 }
 
-export function RecipeReviewCard({ recipe , setFavoriteRecipes }: RecipeReviewCardProps) {
+export function RecipeReviewCard({ recipe , setFavoriteRecipes , favoriteRecipes }: RecipeReviewCardProps) {
     
   const [expanded, setExpanded] = React.useState(false);
+
+  const includeRecipe = () => {
+    // no tiene que existir 2 veces la misma receta
+    const alreadyExist = favoriteRecipes.some((favRecipe) => favRecipe.name === recipe.name);
+
+    if(!alreadyExist){ 
+      console.log(favoriteRecipes)
+      // si no existe, la agregamos a los favoritos
+      setFavoriteRecipes((prev) => [...prev , recipe]);
+    }
+  }
+  
+  
+
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
@@ -92,7 +107,7 @@ export function RecipeReviewCard({ recipe , setFavoriteRecipes }: RecipeReviewCa
       <CardActions disableSpacing>
         
         <IconButton aria-label="add to favorites"
-          onClick={() => setFavoriteRecipes((prev)=> [...prev, recipe])}
+          onClick={() => includeRecipe()}
         >
           <FavoriteIcon />
         </IconButton>
